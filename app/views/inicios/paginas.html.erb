@@ -1,0 +1,26 @@
+<div class="container">
+
+    <!-- Sub Menu -->
+	<ul class="breadcrumb">
+  		<li><a href="/">Inicio</a> <span class="divider">/</span></li>  		
+  		<li class="active">Paginas - <%= @institucion.titulo %> <%= @institucion.anho %></li>
+	</ul><!-- End Submenu -->
+
+    <div class="row">
+      <div class="span3">
+        <%= render "shared/slide_menu" %>
+      </div>
+      <div class="span9">
+        <div class="page-header">
+          <h1><%= @institucion.titulo %> <small>Actualizado el <%= @institucion.updated_at %></small></h1>
+        </div>
+        <div id="resumen">
+          <p class="lead"><%= @institucion.resumen %></p>
+        </div>
+        <hr>
+        <div id="contenido">
+          <%= raw(@institucion.contenido) %>
+        </div>
+      </div>
+    </div>
+</div>

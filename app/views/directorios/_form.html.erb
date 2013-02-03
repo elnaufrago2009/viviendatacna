@@ -1,0 +1,88 @@
+<%= form_for(@directorio, :html => {:class => "form-horizontal well", :multipart => true}) do |f| %>
+  <% if @directorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@directorio.errors.count, "error") %> prohibited this directorio from being saved:</h2>
+
+      <ul>
+      <% @directorio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :nombre_Completo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :nombre , :class => "span4", :placeholder => "Juan Perez" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class = "control-label">
+      <%= f.label :cargo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :cargo, :placeholder => "Administrador de Area" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :tipo %>
+    </div>
+    <div class="controls">
+      <%= f.select(:tipo, [
+                            ["Direccion Regional", 1],
+                            ["Oficina Tecnica Administrativa", 2],
+                            ["Direccion de Vivienda y Urbanismo",3],
+                            ["Direccion Contruccion, Saneamiento y Medio Ambiente", 4]
+                          ])%>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :email %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :email, :placeholder => "anonimo@hotmail.com" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :telefono %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :telefono , :class => "span2", :maxlength => "9", :placeholder => "952123456" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :movil %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :movil, :class => "span2", :maxlength => "9", :placeholder => "952654321" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :foto %>
+    </div>
+    <div class="controls">
+      <%= f.file_field :foto %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => "btn" %>
+    </div>
+  </div>
+
+<% end %>

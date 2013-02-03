@@ -1,0 +1,100 @@
+<div class="container">
+
+    <!-- SubMenu -->
+    <ul class="breadcrumb">
+      <li><a href="/">Inicio</a> <span class="divider">/</span></li>
+      <li class="active">Documentos de Gestion -
+        <% idd = params[:tipo] %>
+        <% if idd == 'ROF' %>
+            ROF
+            </li></ul>
+        <% elsif idd == 'MOF' %>
+            MOF
+            </li></ul>
+        <% elsif idd == 'CAP' %>
+            CAP
+            </li></ul>
+        <% elsif idd == 'MAPRO' %>
+            MAPRO
+            </li></ul>
+        <% elsif idd == 'TUPA' %>
+            TUPA
+            </li></ul>
+        <% elsif idd == 'PEI' %>
+            PEI
+            </li></ul>
+        <% end %>
+    <!-- End SubMenu-->
+
+
+
+
+
+  <div class="row">
+    <div class="span3">
+      <%= render "shared/slide_menu" %>
+    </div>
+    <div class="span9">
+      <div class="page-header">
+          <% idd = params[:tipo] %>
+          <% if idd == 'ROF' %>
+              <h1>ROF - <small>Reglamento de Organizacion y Funciones</small></h1>
+          <% elsif idd == 'MOF' %>
+              <h1>MOF - <small>Manual de Organizacion y Funciones</small></h1>
+          <% elsif idd == 'CAP' %>
+              <h1>CAP - <small>Cuadro de Asignacion de Personal</small></h1>
+          <% elsif idd == 'MAPRO' %>
+              <h1>MAPRO - <small>Manual de Organizacion y Funciones</small></h1>
+          <% elsif idd == 'TUPA' %>
+              <h1>TUPA - <small>Texto Unico de Procedimientos Administrativos</small></h1>
+          <% elsif idd == 'PEI' %>
+              <h1>PEI - <small>Plan Estrategico Institucional</small></h1>
+          <% end %>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt"></i> Ordenar Por <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="/inicios/gestion?tipo=ROF"><i class="icon-share-alt"></i> ROF - Reglamento de Organizacion y Funciones</a></li>
+              <li><a href="/inicios/gestion?tipo=MOF"><i class="icon-share-alt"></i> MOF - Manual de Organizacion y Funciones</a></li>
+              <li><a href="/inicios/gestion?tipo=CAP"><i class="icon-share-alt"></i> CAP - Cuadro de Asignacion de Personal</a></li>
+              <li><a href="/inicios/gestion?tipo=MAPRO"><i class="icon-share-alt"></i> MAPRO - Manual de Procedimientos Administrativos</a></li>
+              <li><a href="/inicios/gestion?tipo=TUPA"><i class="icon-share-alt"></i> TUPA - Texto Unico de Procedimientos Administrativos</a></li>
+              <li><a href="/inicios/gestion?tipo=PEI"><i class="icon-share-alt"></i> PEI - Plan Estrategico Institucional</a></li>
+              <li><a href="/inicios/gestion"><i class="icon-share-alt"></i> TODO</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+        </div>
+        <div class="span6">
+          <%= form_for("/inicios/gestion", :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+              <div class="input-append">
+                <%= text_field_tag :search, params[:search], :class =>"span3 search-query", :placeholder=>"Noticias" %>
+                <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>#Id</th>
+          <th>Nombre</th>
+          <th>Año</th>
+          <th>Acciones</th>
+        </tr>
+        <% @normativos.each do |normativo| %>
+            <tr>
+              <td><%= normativo.id %></td>
+              <td><%= normativo.nombre %></td>
+              <td><%= normativo.anho %></td>
+              <td>
+                <%= link_to raw("<i class='icon-eye-open'></i> Ver Documento"), "/inicios/gestion_detalle/#{normativo.id}", :class => "btn" %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @normativos, :renderer => BootstrapPagination::Rails %>
+    </div>
+  </div>
+
+</div>

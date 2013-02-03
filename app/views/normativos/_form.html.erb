@@ -1,0 +1,88 @@
+<%= form_for(@normativo, :html => {:class=>"form-horizontal well", :multipart => true}) do |f| %>
+  <% if @normativo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@normativo.errors.count, "error") %> prohibited this normativo from being saved:</h2>
+
+      <ul>
+      <% @normativo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :nombre %>
+    </div>
+    <div class="controls">
+        <%= f.text_field :nombre %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :subtitulo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :subtitulo, :class =>"span4" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :resumen %>
+    </div>
+    <div class="controls">
+        <%= f.text_area :resumen, :rows => "5", :class => "span4" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :anho %>
+    </div>
+    <div class="controls">
+        <%= f.select(:anho, [
+                ['2013', 2013],
+                ['2014', 2014],
+                ['2015', 2015],
+                ["2016", 2016],
+                ["2017", 2017],
+                ["2018", 2018]
+        ])  %>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :archivo %>
+    </div>
+    <div class="controls">
+        <%= f.file_field :archivo %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+        <%= f.label :tipo %>
+    </div>
+    <div class="controls">
+        <%= f.select(:tipo, [
+                ["ROF - Reglamento de Organizacion y Funciones", 'ROF'],
+                ["MOF - Manual de Organizacion y Funciones", 'MOF'],
+                ["CAP - Cuadro de Asignacion de Personal", 'CAP'],
+                ["MAPRO - Manual de Organizaciones y Funciones", 'MAPRO'],
+                ["TUPA - Texto Unico de Procedimientos Administrativos", 'TUPA'],
+                ["PEI - Plan Estrategico Institucional", 'PEI']
+        ])  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+        <%= f.submit %>
+    </div>
+  </div>
+<% end %>

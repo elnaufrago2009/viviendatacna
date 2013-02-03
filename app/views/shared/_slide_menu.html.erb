@@ -1,0 +1,27 @@
+<div class="well" style="max-width: 340px; padding: 8px 0;">
+  <ul class="nav nav-list">
+    <li class="nav-header">MENU</li>
+    <li><a href="/"><i class="icon-home"></i>  Inicio</a></li>
+    <li class="divider"></li>
+    <li class="nav-header">INFORMACION INSTITUCIONAL</li>
+    <% @institucionals.each do |institucional| %>
+        <li><a href="/inicios/paginas/<%= institucional.id %> "><i class="icon-share-alt"></i><%= institucional.titulo %></a></li>
+    <% end %>
+    <li class="divider"></li>
+    <li class="nav-header">DIRECTORIO DE AUTORIDADES</li>
+    <li><a href="/inicios/directorio"><i class="icon-folder-open"></i> Directorio</a></li>
+    <li class="divider"></li>
+    <li class="nav-header">DOCUMENTOS DE GESTION NORMA</li>
+    <li><a href="/inicios/gestion?tipo=ROF"><i class="icon-file"></i> ROF</a></li>
+    <li><a href="/inicios/gestion?tipo=MOF"><i class="icon-file"></i> MOF</a></li>
+    <li><a href="/inicios/gestion?tipo=CAP"><i class="icon-file"></i> CAP</a></li>
+    <li class="divider"></li>
+    <li class="nav-header">DOCUMENTOS DE GESTION PRESUPUESTO</li>
+    <li><a href="/inicios/gestion?tipo=MAPRO"><i class="icon-book"></i> MAPRO</a></li>
+    <li><a href="/inicios/gestion?tipo=TUPA"><i class="icon-book"></i> TUPA</a></li>
+    <li><a href="/inicios/gestion?tipo=PEI"><i class="icon-book"></i> PEI</a></li>
+    <li class="divider"></li>
+    <li class="nav-header">ARCHIVO DE NOTICIAS</li>
+    <li><a href="/inicios/noticias"><i class="icon-zoom-in"></i> Noticias</a></li>
+  </ul>
+</div> <!-- /well -->

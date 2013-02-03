@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @normativo.nombre %>
+</p>
+
+<p>
+  <b>Subtitulo:</b>
+  <%= @normativo.subtitulo %>
+</p>
+
+<p>
+  <b>Resumen:</b>
+  <%= @normativo.resumen %>
+</p>
+
+<p>
+  <b>Anho:</b>
+  <%= @normativo.anho %>
+</p>
+
+<p>
+  <b>Contenido:</b>
+  <%= @normativo.contenido %>
+</p>
+
+<p>
+  <b>Archivo:</b>
+  <%= @normativo.archivo %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @normativo.tipo %>
+</p>
+
+<p>
+  <b>Hit:</b>
+  <%= @normativo.hit %>
+</p>
+
+
+<%= link_to 'Edit', edit_normativo_path(@normativo) %> |
+<%= link_to 'Back', normativos_path %>

@@ -1,0 +1,62 @@
+<div class="page-header">
+  <h1>Documentos de Gestion</h1>
+</div>
+
+<div class="row">
+  <div class="span6">
+
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i> Ver Solo <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="/normativos?tipo=ROF"><i class="icon-play"></i> ROF - Reglamento de Organizacion y Funciones</a></li>
+        <li><a href="/normativos?tipo=MOF"><i class="icon-play"></i> MOF - Manual de Organizacion y Funciones</a></li>
+        <li><a href="/normativos?tipo=CAP"><i class="icon-play"></i> CAP - Cuadro de Asignacion de Personal</a></li>
+        <li><a href="/normativos?tipo=4"><i class="icon-play"></i> MAPRO - Manual de Organizaciones y Funciones</a></li>
+        <li><a href="/normativos?tipo=5"><i class="icon-play"></i> TUPA - Texto Unico de Procedimientos Administrativos</a></li>
+        <li><a href="/normativos?tipo=6"><i class="icon-play"></i> PEI - Plan Estrategico Institucional</a></li>
+        <li><a href="/normativos"><i class="icon-play"></i> Todo</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+
+  </div>
+  <div class="span6">
+    <%= form_for(normativos_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+        <div class="input-append">
+          <%= text_field_tag :search, params[:search], :class =>"span3 search-query", :placeholder=>"Buscar" %>
+          <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>#id</th>
+    <th>Nombre</th>
+    <th>Subtitulo</th>
+    <th>Anho</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @normativos.each do |normativo| %>
+  <tr>
+    <td><%= normativo.id %></td>
+    <td><%= normativo.nombre %></td>
+    <td><%= normativo.subtitulo %></td>
+    <td><%= normativo.anho %></td>
+    <td>
+        <%= link_to raw('<i class="icon-eye-open"></i> Ver'), normativo, :class => "btn" %>
+        <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_normativo_path(normativo), :class => "btn" %>
+        <%= link_to raw('<i class="icon-trash"></i> Del'), normativo, confirm: 'Are you sure?', method: :delete, :class => "btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @normativos, :renderer => BootstrapPagination::Rails %>
+
+
+<div class="form-actions">
+    <%= link_to raw('<i class="icon-user icon-white"></i> Nuevo'), new_normativo_path, :class => "btn btn-primary" %>
+</div>

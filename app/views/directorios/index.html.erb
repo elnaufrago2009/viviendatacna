@@ -1,0 +1,81 @@
+<!-- SubMenu -->
+<ul class="breadcrumb" xmlns="http://www.w3.org/1999/html">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>
+  <li class="active">Directorio</li>
+</ul>
+<!-- End SubMenu-->
+
+
+<div class="page-header">
+  <% tipo = params[:tipo] %>
+  <% if tipo == '1' %>
+    <h1>Directorio: Direcccion Regional</h1>
+  <% elsif tipo == '2' %>
+    <h1>Directorio: Oficina Tecnica Administrativa</h1>
+  <% else %>
+    <h1>Directorio de Autoridades</h1>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="span6">
+
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt"></i> Ordenar Por <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="/directorios?tipo=1"><i class="icon-share-alt"></i> Direccion Regional</a></li>
+        <li><a href="/directorios?tipo=2"><i class="icon-share-alt"></i> Oficina Tecnica Administrativa</a></li>
+        <li><a href="#"><i class="icon-share-alt"></i> Direccion de Vivienda y Urbanismo</a></li>
+        <li><a href="#"><i class="icon-share-alt"></i> Direccion Construccion, Saneamiento y Medio Ambiente</a></li>
+        <li><a href="/directorios"><i class="icon-share-alt"></i> Todos</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+
+  </div>
+  <div class="span6">
+    <%= form_for(directorios_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+        <div class="input-append">
+          <%= text_field_tag :search, params[:search], :class =>"span3 search-query", :placeholder=>"Noticias" %>
+          <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>#Id</th>
+    <th>Nombre</th>
+    <th>Cargo</th>
+    <th>Telefono</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @directorios.each do |directorio| %>
+  <tr>
+    <td>
+        <%= directorio.id %>
+        <%= image_tag directorio.foto_url.to_s, :size => "40x40" %>
+    </td>
+    <td><%= directorio.nombre %></td>
+    <td><%= directorio.cargo[0,30] %></td>
+    <td><%= directorio.telefono %></td>
+        <td>
+            <%= link_to raw('<i class="icon-eye-open"></i> Ver'), directorio, :class => "btn" %>
+            <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_directorio_path(directorio), :class => "btn" %>
+            <%= link_to raw('<i class="icon-trash"></i> Dell'), directorio, confirm: 'Are you sure?', method: :delete, :class => "btn" %>
+        </td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+<%= will_paginate @directorios, :renderer => BootstrapPagination::Rails %>
+
+
+
+<div class="form-actions">
+    <%= link_to raw('<i class="icon-user icon-white"></i> Agregar'), new_directorio_path, :class => "btn btn-primary" %>
+</div>

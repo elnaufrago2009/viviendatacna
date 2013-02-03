@@ -1,0 +1,81 @@
+<%= form_for(@institucional, :html => {:class=>"form-horizontal"}) do |f| %>
+  <% if @institucional.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@institucional.errors.count, "error") %> prohibited this institucional from being saved:</h2>
+
+      <ul>
+      <% @institucional.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :titulo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => "span3" %>
+    </div>  
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :subtitulo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :subtitulo, :class => "span6" %>
+    </div>
+  </div>
+
+   <div class="control-group">
+     <div class="control-label">
+        <%= f.label :resumen %>
+      </div>
+      <div class="controls">
+        <%= f.text_area :resumen, :rows => "3" ,:class => "span5", :maxlength => "200" %>
+      </div>
+   </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :contenido %>
+    </div>
+    <div class="controls">
+      <%= f.cktext_area :contenido, :toolbar => 'Easy', :width => 730, :height => 300 %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :anho %>
+    </div>
+    <div class="controls">      
+      <%= f.select(:anho, [                
+                [2012, 2012],
+                [2013, 2013],
+                [2014, 2014],
+                [2015, 2015],
+                [2016, 2016],
+                [2017, 2017]
+      ]) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :visible %>
+    </div>
+    <div class="controls">
+      <%= f.check_box :ver %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => "btn" %>
+    </div>
+  </div>
+
+<% end %>

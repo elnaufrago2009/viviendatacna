@@ -1,0 +1,19 @@
+<!-- SubMenu Inicio -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>
+  <li><a href="/institucionals">Informacion Institucional</a> <span class="divider">/</span></li>
+  <li class="active">Editar : <%= @institucional.titulo %> (<%= @institucional.anho %>)</li>
+</ul>
+<!-- End SubMenu -->
+
+<div class="page-header">
+	<h1>Editar informacion institucional</h1>
+</div>
+
+
+<%= render 'form' %>
+
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-eye-open icon-white"></i> Ver'), @institucional, :class => "btn btn-primary" %>
+	<%= link_to raw('<i class="icon-hand-left icon-white"></i> Atraz'), institucionals_path, :class => "btn btn-primary" %>
+</div>

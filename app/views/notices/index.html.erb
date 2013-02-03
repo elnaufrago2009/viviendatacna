@@ -1,0 +1,67 @@
+<!-- SubMenu -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>
+  <li><a href="/notices">Noticias</a> <span class="divider">/</span></li>
+  <li class="active">index</li>
+</ul>
+<!-- End SubMenu-->
+
+<div class="page-header">
+  <h1>Archivo de Noticias</h1>
+</div>
+
+
+<div class="row">
+  <div class="span6">
+    <%= will_paginate @notices, :renderer => BootstrapPagination::Rails %>
+  </div>
+  <div class="span6">
+    <%= form_for(notices_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+        <div class="input-append">
+          <%= text_field_tag :search, params[:search], :class =>"span3 search-query", :placeholder=>"Buscar" %>
+          <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped" >
+  <tr>
+    <th>#Id</th>
+    <th>Titulo</th>
+    <th>Tipo</th>
+    <th>Visible</th>
+    <th>Acciones</th>
+  </tr>
+
+<% @notices.each do |notice| %>
+  <tr>
+    <td><%= notice.id %></td>
+    <td><%= notice.titulo %></td>
+    <td>
+      <% if notice.tipo == 1 %>
+          <span class="label label-info">Noticia</span>
+      <% else %>
+          <span class="label label-info">Portada</span>
+      <% end %>
+    </td>
+    <td>
+      <% if notice.ver == true %>
+          <span class="badge badge-success">ok</span>
+      <% else %>
+          <span class="badge badge-important">no</span>
+      <% end %>
+    </td>
+    <td>
+        <%= link_to raw('<i class="icon-eye-open"></i> Ver'), notice, :class => "btn" %>
+        <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_notice_path(notice), :class => "btn" %>
+        <%= link_to raw('<i class="icon-trash"></i> Del'), notice, confirm: 'Are you sure?', method: :delete, :class => "btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+
+<div class="form-actions">
+  <a href="/notices/new" class="btn btn-primary"><i class="icon-user icon-white"></i> Nueva Noticia</a>
+</div>

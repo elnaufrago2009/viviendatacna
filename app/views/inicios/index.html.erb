@@ -1,0 +1,57 @@
+<div class="container">
+<!-- Carousel
+    ================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <% primer = 0 %>
+    <% @pnotices.each do |pnotice| %>
+        <div class="item <% if primer == 0 %> active <% end %> ">
+          <%= image_tag pnotice.pimage_url.to_s, :class => "img-rounded" %>
+          <div class="carousel-caption">
+            <h1><a href="#"><%= pnotice.titulo %></a></h1>
+            <p class="lead"><%= pnotice.resumen %></p>
+          </div>
+        </div>
+        <% primer = primer + 1 %>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+</div>
+
+
+<div class="container">
+    <div class="row">
+
+      <!-- span3 -->
+      <div class="span3">
+        <%= render "shared/slide_menu" %>
+      </div><!-- end span3 -->
+
+
+      <!-- span9 -->
+      <div class="span9">
+          <h2>Archivo <small>de Noticias</small></h2>
+        <ul class="media-list">
+          <% @notices.each do |notice| %>
+              <li class="media">
+                <div class="media-body">
+                  <h2 class="media-heading">
+                    <%= image_tag "glyphicons_045_calendar.png" %>
+                    <a href=""><%= notice.titulo %></a>
+                    <hr>
+                  </h2>
+                  <p class="lead"><%= notice.resumen %></p>
+                  <p><%= image_tag notice.nimage_url.to_s %></p>
+                </div>
+              </li>
+          <% end %>
+        </ul>
+
+      </div>
+      <!-- end span9 -->
+
+    </div>
+
+</div> 

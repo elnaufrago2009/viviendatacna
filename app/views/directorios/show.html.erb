@@ -1,0 +1,38 @@
+<!-- SubMenu -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>  
+  <li><a href="/directorios">Directorio</a> <span class="divider">/</span></li>  
+  <li class="active">Ver Autoridad</li>
+</ul>
+<!-- End SubMenu-->
+
+<ul class="media-list">
+  <li class="media">
+      <h1 class="media-heading"><%= @directorio.nombre %></h1>
+      <hr>
+    <a class="pull-right" href="#">      
+      <%= image_tag @directorio.foto_url.to_s %> 
+      <img class="media-object" data-src="holder.js/64x64">
+    </a>
+    <div class="media-body">
+
+      <h5>Nombre:</h5>
+      <p><%= @directorio.nombre %></p>
+      <h5>Cargo:</h5>
+      <p><%= @directorio.cargo %></p>
+      <h5>Email:</h5>
+      <p><%= @directorio.email %></p>
+      <h5>Telefono:</h5>
+      <p><%= @directorio.telefono %></p>
+      <h5>Movil</h5>
+      <p><%= @directorio.movil %></p>
+      <h5>Tipo:</h5>
+      <p><%= @directorio.tipo %></p>
+    </div>
+  </li>
+</ul>
+
+<div class="form-actions">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_directorio_path(@directorio), :class => "btn btn-primary" %>
+  <%= link_to raw('<i class="icon-hand-left icon-white"></i> Regresar'), directorios_path, :class => "btn btn-primary" %>
+</div>

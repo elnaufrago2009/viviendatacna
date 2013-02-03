@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @institucional.titulo %>
+</p>
+
+<p>
+  <b>Subtitulo:</b>
+  <%= @institucional.subtitulo %>
+</p>
+
+<p>
+  <b>Contenido:</b>
+  <%= @institucional.contenido %>
+</p>
+
+<p>
+  <b>Resumen:</b>
+  <%= @institucional.resumen %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @institucional.tipo %>
+</p>
+
+<p>
+  <b>Hit:</b>
+  <%= @institucional.hit %>
+</p>
+
+<p>
+  <b>Anho:</b>
+  <%= @institucional.anho %>
+</p>
+
+
+<%= link_to 'Edit', edit_institucional_path(@institucional) %> |
+<%= link_to 'Back', institucionals_path %>

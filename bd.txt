@@ -1,0 +1,26 @@
+institucional
+==================
+
+rails g scaffold institucional titulo:string subtitulo:string contenido:text resumen:string tipo:string hit:integer anho:integer
+
+
+normativos
+==================
+
+rails g scaffold normativo nombre:string subtitulo:string resumen:string anho:integer contenido:text archivo:string tipo:string hit:integer
+
+noticias
+===================
+
+titulo 		:string
+subtitulo 	:string
+resumen 	:string
+contenido	:text
+nimage		:string
+hit		:integer
+ver		:boolean
+portada		:boolean
+pimage		:string
+presumen 	:string
+fecha		:date
+autor		:string

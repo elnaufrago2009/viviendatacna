@@ -1,0 +1,38 @@
+<!-- SubMenu -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>
+  <li><a href="/notices">Noticias</a> <span class="divider">/</span></li>
+  <li class="active">Detalle ( <%= @notice.id %> )</li>
+</ul>
+<!-- End SubMenu-->
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @notice.titulo %> <small><%= @notice.subtitulo %> - <%= @notice.updated_at %></small></h1>
+</div>
+<p class="lead">
+  <%= @notice.resumen %>
+</p>
+<p>
+  <% if @notice.nimage.length != 0 %>
+      <%= image_tag @notice.nimage_url.to_s %>
+  <% elsif @notice.pimage.length != 0 %>
+      <%= image_tag @notice.pimage_url.to_s %>
+  <% end %>
+</p>
+<p><%= raw(@notice.contenido) %></p>
+<p><strong>Visto :</strong> <%= @notice.hit %></p>
+<p><strong>Visible: </strong>
+  <% if @notice.ver == true %>
+      <span class="badge badge-success">ok</span>
+  <% else %>
+      <span class="badge badge-important">no</span>
+  <% end %>
+</p>
+
+<div class="form-actions">
+    <%= link_to raw('<i class="icon-edit icon-white"></i> Editar'), edit_notice_path(@notice), :class => "btn btn-primary" %>
+    <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Atraz'), notices_path, :class => "btn btn-primary" %>
+</div>

@@ -1,0 +1,17 @@
+<!-- SubMenu -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>  
+  <li><a href="/directorios">Directorio</a> <span class="divider">/</span></li>  
+  <li class="active">Nueva Autoridad</li>
+</ul>
+<!-- End SubMenu-->
+
+<div class="page-header">
+	<h1>Nueva Autoridad</h1>
+</div>
+
+<%= render 'form' %>
+
+<div class="form-actions">
+	<%= link_to raw('<i class="icon-hand-left icon-white"></i> Regresar'), directorios_path, :class => "btn btn-primary" %>
+</div>

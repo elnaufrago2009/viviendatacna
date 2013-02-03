@@ -1,0 +1,14 @@
+<!-- SubMenu -->
+<ul class="breadcrumb">
+  <li><a href="/admin">Inicio</a> <span class="divider">/</span></li>
+  <li><a href="/notices">Noticias</a> <span class="divider">/</span></li>
+  <li class="active">Editar ( <%= @notice.id %> )</li>
+</ul>
+<!-- End SubMenu-->
+
+<h1>Editing notice</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @notice %> |
+<%= link_to 'Back', notices_path %>

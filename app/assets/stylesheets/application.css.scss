@@ -1,0 +1,44 @@
+
+$navbarInverseBackground: #0e2b55;
+$navbarInverseBackgroundHighlight: #133a73;
+$navbarInverseBorder: #17468a;
+
+
+$navbarInverseLinkColor: #e2eeff;
+$navbarInverseLinkColorHover: #d72c25;
+
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+body {
+		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+.carousel .container {
+    position: relative;
+    z-index: 9;
+}
+.pagination {
+  margin: 0px 0;
+}
+
+.carousel img {
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+ }
+
+.carousel-caption {
+  padding: 15px 15px 15px 15px;
+  margin-top: 200px;
+}
+.carousel-caption h1,
+.carousel-caption .lead {
+  margin: 0;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.carousel-caption .btn {
+  margin-top: 10px;
+}
