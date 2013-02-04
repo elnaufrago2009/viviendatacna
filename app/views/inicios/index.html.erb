@@ -1,14 +1,13 @@
-<div class="container">
-<!-- Carousel
-    ================================================== -->
+
+<div class="container" >
 <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">
     <% primer = 0 %>
     <% @pnotices.each do |pnotice| %>
         <div class="item <% if primer == 0 %> active <% end %> ">
-          <%= image_tag pnotice.pimage_url.to_s, :class => "img-rounded" %>
+          <%= image_tag pnotice.pimage_url(:mini).to_s, :class => "img-rounded" %>
           <div class="carousel-caption">
-            <h1><a href="#"><%= pnotice.titulo %></a></h1>
+            <h1><a href="/inicios/noticia/<%= pnotice.id %>"><%= pnotice.titulo %></a></h1>
             <p class="lead"><%= pnotice.resumen %></p>
           </div>
         </div>
@@ -18,7 +17,7 @@
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
-</div>
+</div><!-- End Container -->
 
 
 <div class="container">
@@ -32,26 +31,48 @@
 
       <!-- span9 -->
       <div class="span9">
-          <h2>Archivo <small>de Noticias</small></h2>
-        <ul class="media-list">
+
+          <!-- Titulo Notice -->
+          <div class="row">
+            <div class="span4">
+              <h1>Ultimas <a href="/inicios/noticias">Noticias</a></h1>    
+            </div>
+            <div class="span5">
+              <%= form_for(notices_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+                  <div class="input-append">
+                    <%= text_field_tag :search, params[:search], :class =>"span2 search-query", :placeholder=>"Buscar" %>
+                    <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+                  </div>
+              <% end %>
+            </div>            
+          </div>
+          <hr><!-- End TituloNotice -->
+
+
+
+          <ul class="media-list">
           <% @notices.each do |notice| %>
               <li class="media">
                 <div class="media-body">
                   <h2 class="media-heading">
                     <%= image_tag "glyphicons_045_calendar.png" %>
-                    <a href=""><%= notice.titulo %></a>
-                    <hr>
+                    <a href="/inicios/noticia/<%= notice.id %>"><%= notice.titulo %></a>                    
+                    <small><%= notice.created_at %></small>
                   </h2>
                   <p class="lead"><%= notice.resumen %></p>
-                  <p><%= image_tag notice.nimage_url.to_s %></p>
+                  <p><%= image_tag notice.nimage_url(:mini).to_s %></p>                  
                 </div>
               </li>
+              <hr>
           <% end %>
-        </ul>
+          </ul>
 
-      </div>
-      <!-- end span9 -->
+          <!-- Pagination -->
+          <div class="pagination-right">
+            <%= will_paginate @notices, :renderer => BootstrapPagination::Rails %>
+          </div>
+          <!-- End Pagination -->
 
-    </div>
-
-</div> 
+      </div><!-- end span9 -->
+    </div><!-- End Row -->
+</div><!-- End Container --> 

@@ -1,0 +1,30 @@
+<div class="container">
+	<!-- SubMenu -->
+	<ul class="breadcrumb">
+  		<li><a href="/">Inicio</a> <span class="divider">/</span></li>  
+  		<li><a href="/inicios/noticias">Noticia</a> <span class="divider">/</span></li>  
+  		<li class="active">detalle ( <%= @notice.id %> )</li>
+	</ul>
+	<!-- End SubMenu-->
+
+	<div class="row">
+		<div class="span3">
+			<%= render "shared/slide_menu" %>
+		</div>
+		<div class="span9">
+			<div class="page-header">
+				<h1><%= image_tag "glyphicons_124_message_plus.png" %> <%= @notice.titulo %></h1>
+			</div>
+			<p><i class="icon-calendar"></i> <strong>Fecha:</strong> <%= @notice.updated_at %></p>
+			<p class="lead"><%= @notice.resumen %></p>
+			<% if @notice.nimage.length != 0 %>
+				<p><%= image_tag @notice.nimage_url(:thumb).to_s %></p>	
+			<% else %>
+				<p><%= image_tag @notice.pimage_url(:thumb).to_s %></p>	
+			<% end %>			
+			<p><%= raw(@notice.contenido) %></p>
+			<p><a href="/" class="btn btn-large"><i class="icon-arrow-left"></i> Regresar</a></p>
+		</div>
+
+	</div>
+</div>

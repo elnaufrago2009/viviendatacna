@@ -1,0 +1,50 @@
+<div class="container">
+	<!-- SubMenu -->
+	<ul class="breadcrumb">
+	  <li><a href="/">Inicio</a> <span class="divider">/</span></li>  
+	  <li class="active">Noticias</li>
+	</ul>
+	<!-- End SubMenu-->
+
+	<div class="row">
+		<div class="span3">
+			<%= render "shared/slide_menu" %>
+		</div>
+		<div class="span9">
+			<div class="page-header">
+				<h1>Archivo de Noticias</h1>
+			</div>
+			<div class="row">
+			  <div class="span4">
+			    <%= will_paginate @notices, :renderer => BootstrapPagination::Rails %>
+			  </div>
+			  <div class="span5">
+			    <%= form_for(notices_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
+			        <div class="input-append">
+			          <%= text_field_tag :search, params[:search], :class =>"span2 search-query", :placeholder=>"Buscar" %>
+			          <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
+			        </div>
+			    <% end %>
+			  </div>
+			</div>
+
+			<ul class="media-list">
+	          	<% @notices.each do |notice| %>
+	              	<li class="media">
+	                	<div class="media-body">
+	                  		<h2 class="media-heading">
+	                    		<%= image_tag "glyphicons_045_calendar.png" %>
+	                    		<a href="/inicios/noticia/<%= notice.id %>"><%= notice.titulo %></a>
+	                    		<small><%= notice.created_at %></small>                    
+	                  		</h2>
+	                  		<p class="lead"><%= notice.resumen %></p>
+	                  		<p><%= image_tag notice.nimage_url(:mini).to_s %></p>                  
+	                	</div>
+	              	</li>
+	              	<hr>
+	          	<% end %>
+	        </ul>
+	        <%= will_paginate @notices, :renderer => BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>

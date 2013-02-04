@@ -8,29 +8,37 @@
 </ul>
 <!-- End SubMenu-->
 
+<div class="row">
+  <div class="span3">
+    <%= render "shared/slide_menu" %>
+  </div>
+  <div class="span9">
+    <ul class="media-list">
+      <li class="media">
+          <h1 class="media-heading"><%= @directorio.nombre %> <%= @next %></h1>
+          <hr>
+        <a class="pull-left" href="#">      
+          <%= image_tag @directorio.foto_url.to_s %> 
+          <img class="media-object" data-src="holder.js/64x64">
+        </a>
+        <div class="media-body">
 
-<ul class="media-list">
-  <li class="media">
-      <h1 class="media-heading"><%= @directorio.nombre %> <%= @next %></h1>
-      <hr>
-    <a class="pull-left" href="#">      
-      <%= image_tag @directorio.foto_url.to_s %> 
-      <img class="media-object" data-src="holder.js/64x64">
-    </a>
-    <div class="media-body">
-
-      <h5>Nombre:</h5>
-      <p><%= @directorio.nombre %></p>
-      <h5>Cargo:</h5>
-      <p><%= @directorio.cargo %></p>
-      <h5>Email:</h5>
-      <p><%= @directorio.email %></p>
-      <h5>Telefono:</h5>
-      <p><%= @directorio.telefono %></p>
-      <h5>Movil</h5>
-      <p><%= @directorio.movil %></p>
-    </div>
-  </li>
-</ul>
-
+          <h5>Nombre:</h5>
+          <p><%= @directorio.nombre %></p>
+          <h5>Cargo:</h5>
+          <p><%= @directorio.cargo %></p>
+          <h5>Email:</h5>
+          <p><%= @directorio.email %></p>
+          <h5>Telefono:</h5>
+          <p><%= @directorio.telefono %></p>
+          <h5>Movil</h5>
+          <p><%= @directorio.movil %></p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
+
+</div><!-- End Container -->

@@ -17,7 +17,10 @@ Mvivienda::Application.routes.draw do
   get "inicios/paginas/:id" => "inicios#paginas#:id"
   get "inicios/directorio" => "inicios#directorio"
   get "inicios/directorio_detalle/:id" => "inicios#directorio_detalle#:id"
-  get "inicios/:id" => "inicios#gestion"
+  get "inicios/gestion" => "inicios#gestion"  
+  get "inicios/noticia/:id" => "inicios#noticia#:id"
+  get "inicios/noticias" => "inicios#noticias"
+  
 
 
   # The priority is based upon order of creation:

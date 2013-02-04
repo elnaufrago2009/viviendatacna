@@ -39,7 +39,15 @@ class PimageUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
-  process :resize_to_fill => [1170, 500]
+  #process :resize_to_fill => [1170, 500]
+
+  version :thumb do     
+     process :resize_to_limit => [860, 900]
+   end    
+
+  version :mini do
+    process :resize_to_fill => [1170, 500]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
