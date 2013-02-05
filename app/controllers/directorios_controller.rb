@@ -3,7 +3,8 @@ class DirectoriosController < ApplicationController
   # GET /directorios.json
   layout "back-end"
   def index    
-    @directorios = Directorio.paginate(:page => params[:page], :per_page => 2, :conditions => ['lower (nombre) like ? AND tipo like ?', "%#{params[:search]}%", "%#{params[:tipo]}%"]).order("id Asc")
+    #@directorios = Directorio.paginate(:page => params[:page], :per_page => 2, :conditions => ['lower (nombre) like ? AND tipo like ?', "%#{params[:search]}%", "%#{params[:tipo]}%"]).order("id Asc")
+    @directorios = Directorio.paginate(:page => params[:page], :per_page => 2, :conditions => ['lower (nombre) like ?', "%#{params[:search]}%"]).order("id Asc")
 
     respond_to do |format|
       format.html # index.html.erb
