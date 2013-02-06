@@ -1,0 +1,68 @@
+<%= form_for(@comunicado, :html => { :class=> "form-horizontal well", :multipart => true }) do |f| %>
+  <% if @comunicado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comunicado.errors.count, "error") %> prohibited this comunicado from being saved:</h2>
+
+      <ul>
+      <% @comunicado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :titulo %>
+    </div>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => "span5" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :resumen %>
+    </div>
+    <div class="controls">
+      <%= f.text_area :resumen, :class => "span4", :rows => "5" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :fecha %>
+    </div>
+    <div class="controls">
+      <%= f.date_select :fecha %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :archivo %>
+    </div>
+    <div class="controls">
+      <%= f.file_field :carchivo %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label">
+      <%= f.label :visible %>
+    </div>
+    <div class="controls">
+      <%= f.select(:visible, [
+            ['Visible en Pagina', '1'],
+            ['No Visible', '2']
+        ]) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit %>
+    </div>
+  </div>
+
+<% end %>

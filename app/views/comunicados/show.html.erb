@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @comunicado.titulo %></h1>
+</div>
+
+<h4>Resumen:</h4>
+<p><%= @comunicado.resumen %></p>
+
+
+<p>
+  <b>Fecha:</b>
+  <%= @comunicado.fecha %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <% if @comunicado.visible == '1' %>
+                <span class="badge badge-success">Ok</span>
+            <% else %>
+                <span class="badge">No</span>
+  <% end %>              
+</p>
+
+<%= link_to raw('<i class="icon-download"></i> Descargar Comunicado'), "#{@comunicado.carchivo}", :class=>"btn btn-large", :target => "_blank" %>
+
+<div class="form-actions">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_comunicado_path(@comunicado), :class => "btn btn-primary" %>
+  <%= link_to raw('<i class="icon-arrow-left icon-white"></i> Regresar'), comunicados_path, :class => "btn btn-primary" %>
+</div>

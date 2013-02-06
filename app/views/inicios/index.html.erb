@@ -34,10 +34,10 @@
 
           <!-- Titulo Notice -->
           <div class="row">
-            <div class="span4">
+            <div class="span5">
               <h1>Ultimas <a href="/inicios/noticias">Noticias</a></h1>    
             </div>
-            <div class="span5">
+            <div class="span4">
               <%= form_for(notices_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
                   <div class="input-append">
                     <%= text_field_tag :search, params[:search], :class =>"span2 search-query", :placeholder=>"Buscar" %>

@@ -1,16 +1,31 @@
 institucional
 ==================
+rails g scaffold institucional 
 
-rails g scaffold institucional titulo:string subtitulo:string contenido:text resumen:string tipo:string hit:integer anho:integer
+titulo		:string 
+subtitulo	:string 
+contenido	:text 
+resumen		:string 
+tipo		:string 
+hit		:integer 
+anho		:integer
 
 
 normativos
 ==================
+rails g scaffold normativo 
 
-rails g scaffold normativo nombre:string subtitulo:string resumen:string anho:integer contenido:text archivo:string tipo:string hit:integer
+nombre		:string 
+subtitulo	:string 
+resumen		:string 
+anho		:integer 
+contenido	:text 
+archivo		:string 
+tipo		:string 
+hit		:integer
 
 noticias
-===================
+=======================
 
 titulo 		:string
 subtitulo 	:string
@@ -24,3 +39,16 @@ pimage		:string
 presumen 	:string
 fecha		:date
 autor		:string
+
+comunicados
+=======================
+
+titulo		:string
+resumen 	:string
+contenido	:text
+fecha		:date
+carchivo	:string
+visible		:string
+
+
+Espera de la publicacion de ordenanza 

@@ -1,4 +1,6 @@
 Mvivienda::Application.routes.draw do
+  resources :comunicados
+
   get "notices/pnew" => "notices#pnew"
 
   resources :notices

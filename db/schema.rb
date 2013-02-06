@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128134347) do
+ActiveRecord::Schema.define(:version => 20130206145429) do
+
+  create_table "comunicados", :force => true do |t|
+    t.string   "titulo"
+    t.string   "resumen"
+    t.text     "contenido"
+    t.date     "fecha"
+    t.string   "carchivo"
+    t.string   "visible"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "directorios", :force => true do |t|
     t.string   "nombre"

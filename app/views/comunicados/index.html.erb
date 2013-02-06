@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Ultimos Comunicados</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>#Id</th>
+        <th>Titulo</th>        
+        <th>Fecha</th>        
+        <th>Visible</th>
+        <th>Acciones</th>        
+      </tr>
+
+    <% @comunicados.each do |comunicado| %>
+      <tr>
+        <td><%= comunicado.id %></td>
+        <td><%= comunicado.titulo %></td>
+        <td><%= comunicado.fecha %></td>
+        <td>
+            <% if comunicado.visible == '1' %>
+                <span class="badge badge-success">Ok</span>
+            <% else %>
+                <span class="badge">No</span>
+            <% end %>            
+        </td>
+            <td>
+                <%= link_to raw('<i class="icon-eye-open"></i> Ver'), comunicado, :class => "btn" %>
+                <%= link_to raw('<i class="icon-edit"></i> Edit'), edit_comunicado_path(comunicado), :class => "btn" %>
+                <%= link_to raw('<i class="icon-download"></i> Descargar'), "#{comunicado.carchivo}", :class=>"btn", :target => "_blank" %>
+                <%= link_to raw('<i class="icon-trash"></i> Del'), comunicado, confirm: 'Are you sure?', method: :delete, :class => "btn" %>
+            </td>
+      </tr>
+    <% end %>
+    </table>
+
+    <div class="form-actions">
+        <%= link_to raw('<i class="icon-user icon-white"></i> Nuevo'), new_comunicado_path, :class => "btn btn-primary" %>
+    </div>
+</div>
