@@ -10,7 +10,7 @@ class CreateDirectorios < ActiveRecord::Migration
       t.text :biografia
       t.integer :hit
       t.string :resumen
-      t.integer :tipo
+      t.string :tipo
       t.boolean :ver
 
 

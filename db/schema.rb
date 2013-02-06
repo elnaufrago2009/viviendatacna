@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130128134347) do
     t.text     "biografia"
     t.integer  "hit"
     t.string   "resumen"
-    t.integer  "tipo"
+    t.string   "tipo"
     t.boolean  "ver"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
