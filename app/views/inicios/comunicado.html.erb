@@ -1,0 +1,46 @@
+<div class="container">
+
+	<!-- SubMenu -->
+	<ul class="breadcrumb">
+	  <li><a href="/">Inicio</a> <span class="divider">/</span></li>  
+	  <li><a href="/inicios/comunicados">Comunicados</a> <span class="divider">/</span></li>  
+	  <li class="active">Comunicado ( <%= @comunicado.id %> )</li>
+	</ul>
+	<!-- End SubMenu-->
+
+	<div class="row">
+		<div class="span3">
+			<%= render "shared/slide_menu" %>
+		</div>
+		<div class="span9">
+			<div class="page-header">
+				<h1><%= @comunicado.titulo %></h1>
+			</div>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Propiedad</th>
+					<th>Valor</th>
+				</tr>
+				<tr>
+					<td>#ID</td>
+					<td><%= @comunicado.id %></td>
+				</tr>
+				<tr>
+					<td>Documento Creado</td>
+					<td><%= @comunicado.created_at %></td>
+				</tr>
+				<tr>
+					<td>Ultima Actualizacion</td>
+					<td><%= @comunicado.updated_at %></td>
+				</tr>
+				<tr>
+					<td>Resumen</td>
+					<td><%= @comunicado.resumen %></td>
+				</tr>
+			</table>			
+			<p><a href="<%= @comunicado.carchivo %>" target="_blanck" class="btn btn-large"><i class="icon-download-alt"></i> Descargar</a></p>
+			
+
+		</div>
+	</div>	
+</div>

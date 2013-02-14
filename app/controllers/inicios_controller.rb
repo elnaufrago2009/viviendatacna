@@ -6,6 +6,7 @@ class IniciosController < ApplicationController
 		@institucionals = Institucional.where("ver = ?", true).order("id Desc")
     	@pnotices = Notice.where("tipo" => 2).limit(5).order("id Desc")
     	@notices = Notice.paginate(:page => params[:page], :per_page => 5, :conditions => ['lower (titulo) like ? AND tipo = ?', "%#{params[:search]}%", 1]).order("id Asc").order("id Desc")
+    	@comunicados = Comunicado.limit(5).order("id Desc")
 	end
 
 	def paginas 
@@ -37,5 +38,23 @@ class IniciosController < ApplicationController
   		@institucionals = Institucional.where("ver = ?", true).order("id Desc")
   		@notices = Notice.paginate(:page => params[:page], :per_page => 5, :conditions => ['lower (titulo) like ? AND tipo = ?', "%#{params[:search]}%", 1]).order("id Asc").order("id Desc")
   	end
+
+  	def comunicados
+  		@institucionals = Institucional.where("ver = ?", true).order("id Desc")  		
+  		@comunicados = Comunicado.paginate(:page => params[:page], :per_page => 5, :conditions => ['lower (titulo) like ?', "%#{params[:search]}%"]).order("id Asc").order("id Desc")
+  	end 
+
+  	def comunicado
+  		@institucionals = Institucional.where("ver = ?", true).order("id Desc")  		
+  		@comunicado = Comunicado.find(params[:id])
+  	end
+
+    def responsable
+       @institucionals = Institucional.where("ver = ?", true).order("id Desc")      
+    end
+
+    def mi_vivienda
+      @institucionals = Institucional.where("ver = ?", true).order("id Desc")      
+    end 
 
 end 

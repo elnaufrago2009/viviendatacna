@@ -13,10 +13,7 @@ $navbarInverseLinkColorHover: #d72c25;
 body {
 		padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
     }
-.carousel .container {
-    position: relative;
-    z-index: 9;
-}
+
 .pagination {
   margin: 0px 0;
 }
@@ -25,7 +22,7 @@ body {
       top: 0;
       left: 0;
       min-width: 100%;
-      height: 500px;
+      height: 300px;
  }
 
 .carousel-caption {

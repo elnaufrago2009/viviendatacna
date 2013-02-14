@@ -22,6 +22,10 @@ Mvivienda::Application.routes.draw do
   get "inicios/gestion" => "inicios#gestion"  
   get "inicios/noticia/:id" => "inicios#noticia#:id"
   get "inicios/noticias" => "inicios#noticias"
+  get "inicios/comunicados" => "inicios#comunicados"
+  get "inicios/comunicado/:id" => "inicios#comunicado#:id"
+  get "inicios/responsable" => "inicios#responsable"
+  get "inicios/mi_vivienda" => "inicios#mi_vivienda"
   
 
 

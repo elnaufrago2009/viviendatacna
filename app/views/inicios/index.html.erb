@@ -7,8 +7,8 @@
         <div class="item <% if primer == 0 %> active <% end %> ">
           <%= image_tag pnotice.pimage_url(:mini).to_s, :class => "img-rounded" %>
           <div class="carousel-caption">
-            <h1><a href="/inicios/noticia/<%= pnotice.id %>"><%= pnotice.titulo %></a></h1>
-            <p class="lead"><%= pnotice.resumen %></p>
+            <h4><a href="/inicios/noticia/<%= pnotice.id %>"><%= pnotice.titulo %></a></h4>
+            <p><%= pnotice.resumen %></p>
           </div>
         </div>
         <% primer = primer + 1 %>
@@ -32,18 +32,34 @@
       <!-- span9 -->
       <div class="span9">
 
+          <!-- Comunicados -->
+            <div class="page-header">
+              <h1>Ultimos <a href="/inicios/comunicados">Comunicados</a></h1>
+            </div>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <th>#id</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+              </tr>
+              <% @comunicados.each do |comunicado| %>
+              <tr>
+                <td><%= comunicado.id %></td>
+                <td><a href="#"><i class="icon-file"></i> <%= comunicado.titulo %></a></td>
+                <td><%= comunicado.fecha %></td>
+                <td><a href="<%= comunicado.carchivo %>" class="btn" target="_blank" ><i class="icon-download-alt"></i> Descarga</a></td>
+              </tr>
+              <% end %>
+            </table>
+          <!-- End Comunicados-->
+
           <!-- Titulo Notice -->
           <div class="row">
             <div class="span5">
               <h1>Ultimas <a href="/inicios/noticias">Noticias</a></h1>    
             </div>
-            <div class="span4">
-              <%= form_for(notices_path, :html=>{:class=>"form-search pull-right"}, :method => "get") do |f| %>
-                  <div class="input-append">
-                    <%= text_field_tag :search, params[:search], :class =>"span2 search-query", :placeholder=>"Buscar" %>
-                    <button type="submit" class="btn"><i class="icon-search"></i> Buscar</button>
-                  </div>
-              <% end %>
+            <div class="span4">              
             </div>            
           </div>
           <hr><!-- End TituloNotice -->

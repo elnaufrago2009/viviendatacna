@@ -1,6 +1,6 @@
 <!-- Navbar
 ================================================== -->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -8,7 +8,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="/" style="margin:0; padding:0px; padding-right: 10px;"><%= image_tag "logo_mvivienda.png" %></a>
+            <a class="brand" href="/" style="margin:0; padding:0px; padding-right: 10px;">
+                <%= image_tag "logo_vivienda2.png" %>
+            </a>
             <div class="nav-collapse collapse">
                 <ul class="nav">                    
                     <li class="dropdown">
@@ -35,25 +37,32 @@
                             <li><a href="/inicios/gestion?tipo=MAPRO">MAPRO - Manual de Organizacion y Funciones</a></li>
                             <li><a href="/inicios/gestion?tipo=TUPA">TUPA - Texto Unico de Procedimientos Administrativos</a></li>
                             <li><a href="/inicios/gestion?tipo=PEI">PEI - Plan Estrategico Institucional</a></li>
+                            
                         </ul>
                     </li>
-                    <li><a href="/inicios/noticias">Noticias <i class="icon-share-alt icon-white"></i></a></li>
+                    <li><a href="/inicios/noticias">Noticias <i class="icon-share-alt"></i></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-zoom-in icon-white"></i> Transparencia <b class="caret"></b>
+                            <i class="icon-zoom-in"></i> Transparencia <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">                            
-                            <li class="nav-header">COMUNICADOS EMITIDOS</li>                            
-                            <li><a href="/inicios/comunicados">Comunicados</a></li>                            
+                            <li class="nav-header">COMUNICADOS</li>                            
+                            <li><a href="/inicios/comunicados">Comunicados Oficiales</a></li>                            
                             <li class="divider"></li>
-                            <li class="nav-header">PROYECTOS</li>                            
-                            <li><a href="/inicios/gestion?tipo=MAPRO">Vivienda y Saneamiento</a></li>
-                            <li><a href="/inicios/gestion?tipo=TUPA">Sectorial</a></li>                            
+                            <li class="nav-header">PROGRAMAS</li>                            
+                            <li><a href="/inicios/mi_vivienda">Programa mi vivienda</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">RESPONSABLE</li>
+                            <li><a href="/inicios/responsable">Responsable del Portal</a></li>
                         </ul>
                     </li>
                 </ul>
             <ul class="nav pull-right">
-                <li><a href="/admin"><i class="icon-lock icon-white"></i> Admin</a></li>
+                <li>
+                    <a href="/admin" style="margin:0; padding:0px; padding-right: 10px;">
+                        <%= image_tag "logo_vivienda2.png" %>
+                    </a>
+                </li>
             </ul>
             </div><!--/.nav-collapse -->
         </div>
