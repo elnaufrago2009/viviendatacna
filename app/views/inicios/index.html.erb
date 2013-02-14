@@ -71,12 +71,12 @@
               <li class="media">
                 <div class="media-body">
                   <h2 class="media-heading">
-                    <%= image_tag "glyphicons_045_calendar.png", :class => "img-polaroid" %>
+                    <%= image_tag "glyphicons_045_calendar.png" %>
                     <a href="/inicios/noticia/<%= notice.id %>"><%= notice.titulo %></a>                    
                     <small><%= notice.created_at %></small>
                   </h2>
                   <p class="lead"><%= notice.resumen %></p>
-                  <p><%= image_tag notice.nimage_url(:mini).to_s %></p>                  
+                  <p><%= image_tag notice.nimage_url(:mini).to_s, :class => "img-polaroid" %></p>                  
                 </div>
               </li>
               <hr>
